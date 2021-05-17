@@ -1,0 +1,377 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* You can add global styles to this file, and also import other style files */
+@import "/styles/colors";
+@import "/styles/config";
+@font-face {
+  font-family: "DMSans";
+  src: url(assets/fonts/DMSans-Regular.ttf);
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(assets/fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: "Charmon";
+  src: url(assets/fonts/Charmonman-Regular.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    margin-top: 9px;
+    padding-right: 60px !important;
+    padding-left: 60px !important;
+  }
+}
+a {
+  font-family: "DMSans", sans-serif;
+}
+.btn {
+  font-size: 13px !important;
+}
+
+.logo {
+  width: 100px;
+}
+body {
+  font-family: "DMSans", sans-serif;
+  /* Track */
+}
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary-color;
+}
+h4 {
+  font-size: 24px;
+}
+p {
+  font-size: 14px;
+}
+.font-34 {
+  font-size: 34px !important;
+}
+.font-38 {
+  font-size: 38px !important;
+}
+.font-32 {
+  font-size: 32px !important;
+}
+.font-30 {
+  font-size: 30px !important;
+}
+.font-28 {
+  font-size: 28px !important;
+}
+.font-24 {
+  font-size: 24px !important;
+}
+.font-20 {
+  font-size: 20px !important;
+}
+.font-22 {
+  font-size: 22px !important;
+}
+.font-16 {
+  font-size: 16px !important;
+}
+.font-12 {
+  font-size: 12px !important;
+}
+.my-btn-pri {
+  background: $primary-color;
+  border-radius: 5px;
+  padding: 10px 40px;
+  border: none;
+  color: #ffffff;
+  &:hover {
+    box-shadow: none !important;
+    color: #ffffff;
+  }
+  &:focus {
+    box-shadow: none !important;
+    color: #ffffff;
+  }
+}
+.my-btn-styled {
+  background: linear-gradient(105.9deg, #2cdcff 6.4%, #00b2ab 64.23%);
+  border-radius: 5px;
+  padding: 10px 40px;
+  border: none;
+  color: #ffffff;
+  &:hover {
+    // box-shadow: none !important;
+    color: #ffffff;
+  }
+  &:focus {
+    box-shadow: none !important;
+    color: #ffffff;
+  }
+}
+
+.my-text-bold {
+  font: bold !important;
+}
+.my-text-primary {
+  color: $primary-color !important;
+}
+.my-text-secondary {
+  color: $secondary-color !important;
+}
+
+.fw-700 {
+  font-weight: 700 !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+label {
+  font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  color: #2e266f;
+}
+.input-group {
+  .input-group-text {
+    font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+    background: #0c9ea0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+}
+
+.my-input {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.007em;
+  color: #1f1f1f;
+  background: #f9f9fc;
+  border-radius: 5px;
+  padding: 14px 18px;
+  border: none;
+  box-sizing: border-box;
+
+  &:focus {
+    box-shadow: none !important;
+    border: 1px solid $secondary-color;
+  }
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+
+    color: #ababb6;
+    opacity: 1; /* Firefox */
+  }
+
+  &::-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+
+    color: #ababb6;
+  }
+
+  .write {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+
+    color: #ababb6;
+  }
+}
+.my-select {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.007em;
+  color: #1f1f1f;
+  background-color: #f9f9fc;
+  border-radius: 5px;
+  padding: 14px 18px;
+  border: none;
+  box-sizing: border-box;
+  &:focus {
+    box-shadow: none !important;
+    border: 1px solid $secondary-color;
+  }
+  option {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+
+    color: #ababb6;
+    opacity: 1; /* Firefox */
+    // &:checked {
+    //   font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    //   font-weight: 500;
+    //   font-size: 14px;
+    //   line-height: 31px;
+    //   letter-spacing: 0.007em;
+
+    //   color: #ababb6;
+    //   opacity: 1; /* Firefox */
+    // }
+  }
+
+  &::-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 31px;
+    letter-spacing: 0.007em;
+
+    color: #ababb6;
+  }
+}
+.modal {
+  // padding-right: 0%;
+  overflow: hidden !important;
+  .modal-header {
+    border-bottom: none !important;
+  }
+
+  .modal-content {
+    border-radius: 15px !important;
+  }
+  .modal-body {
+    padding: 10px 40px !important;
+  }
+  @media (max-width: 480px) {
+    .modal-body {
+      padding: 10px 30px !important;
+    }
+  }
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 50px;
+  // box-shadow: none !important;
+  // border: 1px solid $secondary-color !important;
+}
+
+.ng-select.ng-select-opened > .ng-select-container {
+  /* background: rebeccapurple; */
+  border-color: #b3b3b3 #ccc #d9d9d9;
+}
+
+.ng-select .ng-select-container {
+  color: #333;
+  box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.07) !important;
+  border-radius: 5px !important;
+  border: none;
+  padding: 23px 18px;
+
+  &:hover {
+    box-shadow: none !important;
+    border: 1px solid $secondary-color;
+  }
+}
+.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+  border-color: 1px solid $secondary-color !important;
+}
+.ng-dropdown-panel {
+  background-color: #fff;
+  border: none !important;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 6%);
+  left: 0;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected,
+.ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option.ng-option-selected.ng-option-marked {
+  background: rgba(12, 158, 160, 0.2);
+  color: #1f1f1f;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  margin-bottom: 5px;
+  padding: 7px 35px;
+  border-radius: 5px;
+  // color: rgba(0, 0, 0, 0.87);
+  span {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 33px;
+    letter-spacing: 0.007em;
+    color: #1f1f1f;
+  }
+}
+.ng-value-label {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 33px;
+  letter-spacing: 0.007em;
+  color: #1f1f1f;
+}
+
+.ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option.ng-option-selected
+  .ng-option-label,
+.ng-dropdown-panel
+  .ng-dropdown-panel-items
+  .ng-option.ng-option-selected.ng-option-marked
+  .ng-option-label {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 33px;
+  letter-spacing: 0.007em;
+  color: #1f1f1f;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items {
+  max-height: 280px !important;
+}
+
+.is-invalid {
+  border: 1px solid red;
+}
+.click {
+  cursor: pointer;
+}

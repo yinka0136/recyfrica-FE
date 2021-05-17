@@ -1,0 +1,315 @@
+<div class="container">
+  <nav
+    class="navbar navbar-expand-lg navbar-light"
+    data-aos="fade-down"
+    data-aos-easing="ease-in-sine"
+    data-aos-delay="1000"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"
+        ><img src="../../../assets/images/Logo.png" alt="" class="logo"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+        <div class="ms-auto">
+          <div class="join-in">
+            <button
+              class="btn my-btn-styled"
+              type="submit"
+              data-bs-target="#join-us"
+              data-bs-toggle="modal"
+            >
+              Join Waitlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--Join Us Modal-->
+  <div
+    class="modal fade"
+    id="join-us"
+    tabindex="-1"
+    aria-labelledby="join-us"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p class="my-text-primary text-center mb-3 font-22 fw-500">
+            Join now to claim 50 Recyfrica points
+          </p>
+          <form id="createForm" name="createForm" [formGroup]="joinForm">
+            <div class="row mb-2">
+              <div class="col-12 mb-3">
+                <label for="disabledSelect" class="form-label">I am a:</label>
+
+                <ng-select
+                  appearance="outline"
+                  [searchable]="false"
+                  [clearable]="false"
+                  labelForId="user_type"
+                  formControlName="user_type"
+                  (change)="changeUserType($event)"
+                >
+                  <ng-option [value]="userType.USER_PROFILE">
+                    <i class="fa fa-user"></i>
+                    User
+                  </ng-option>
+                  <ng-option [value]="userType.COLLECTOR_PROFILE">
+                    <i class="fa fa-user"></i>
+                    Collector
+                  </ng-option>
+                  <ng-option [value]="userType.RECYCLING_COMPANY_PROFILE">
+                    <i class="fa fa-building"></i>
+                    Recycling Company
+                  </ng-option>
+                </ng-select>
+              </div>
+            </div>
+
+            <div
+              class="row"
+              *ngIf="
+                joinForm.get('user_type')?.value !=
+                userType.RECYCLING_COMPANY_PROFILE
+              "
+            >
+              <div class="col-12 col-md-6 mb-2">
+                <label for="first_name" class="form-label">First Name</label>
+                <input
+                  formControlName="first_name"
+                  type="text"
+                  class="form-control my-input"
+                  id="first_name"
+                  aria-describedby="nameHelp"
+                  placeholder="First Name"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('first_name')?.errors &&
+                      joinForm.get('first_name')?.touched
+                  }"
+                />
+                <div class="invalid-feedback">First name is required</div>
+              </div>
+              <div class="col-12 col-md-6 mb-2">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control my-input"
+                  id="last_name"
+                  formControlName="last_name"
+                  aria-describedby="sizeHelp"
+                  placeholder="Last Name"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('last_name')?.errors &&
+                      joinForm.get('last_name')?.touched
+                  }"
+                />
+                <div class="invalid-feedback">Last name is required</div>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-12">
+                <label for="email_address" class="form-label">
+                  {{
+                    joinForm.get("user_type")?.value ==
+                    userType.RECYCLING_COMPANY_PROFILE
+                      ? "Company Email"
+                      : "Email"
+                  }}
+                </label>
+                <input
+                  type="email"
+                  formControlName="email_address"
+                  class="form-control my-input"
+                  id="email_address"
+                  aria-describedby="nameHelp"
+                  placeholder="hello@recyfrica.com"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('email_address')?.errors &&
+                      joinForm.get('email_address')?.touched
+                  }"
+                />
+
+                <div class="invalid-feedback">Please enter a valid email</div>
+              </div>
+            </div>
+            <div
+              class="row mb-2"
+              *ngIf="
+                joinForm.get('user_type')?.value ==
+                userType.RECYCLING_COMPANY_PROFILE
+              "
+            >
+              <div class="col-12">
+                <label for="company_name" class="form-label"
+                  >Company Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control my-input"
+                  id="company_name"
+                  aria-describedby="nameHelp"
+                  placeholder="Company Name"
+                  formControlName="company_name"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('company_name')?.errors &&
+                      joinForm.get('company_name')?.touched
+                  }"
+                />
+                <div class="invalid-feedback">Company name is required</div>
+              </div>
+            </div>
+
+            <div
+              class="row mb-2"
+              *ngIf="joinForm.get('user_type')?.value != userType.USER_PROFILE"
+            >
+              <div class="col-12">
+                <label for="address" class="form-label">Physical Address</label>
+                <textarea
+                  name="address"
+                  class="form-control my-input"
+                  id="address"
+                  placeholder="No 15 Ahmadu A Ali"
+                  formControlName="address"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('address')?.errors &&
+                      joinForm.get('address')?.touched
+                  }"
+                ></textarea>
+                <div class="invalid-feedback">Please enter your address</div>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <!-- <div class="col-12">
+                <label for="phone_number" class="form-label"
+                  >Phone Number</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text" id="country">+234</span>
+                  <input
+                    type="string"
+                    class="form-control my-input"
+                    placeholder="8187456443"
+                    id="phone_number"
+                    aria-label="phone_number"
+                    aria-describedby="country"
+                    formControlName="phone_number"
+                    [ngClass]="{
+                      'is-invalid':
+                        joinForm.get('phone_number')?.errors &&
+                        joinForm.get('phone_number')?.touched
+                    }"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid phone number
+                  </div>
+                </div>
+              </div> -->
+              <div class="col-12 col-md-6">
+                <label for="country" class="form-label">Country</label>
+                <select
+                  class="form-select my-select form-control"
+                  aria-label=""
+                >
+                  <option selected="selected">Select Country</option>
+
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="state" class="form-label">State/Province</label>
+                <select
+                  class="form-select my-select form-control"
+                  aria-label=" "
+                >
+                  <option selected>Select State</option>
+                  <option value="1">One</option>
+                </select>
+              </div>
+            </div>
+            <div class="my-2 d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn my-btn-styled"
+                (click)="submit()"
+              >
+                Submit <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div data-bs-dismiss="modal" #closeModal></div>
+  </div>
+  <!--Congratulations-->
+  <div
+    class="modal fade"
+    id="congratulations"
+    tabindex="-1"
+    aria-labelledby="congratulations"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-center">
+            <img src="../../../assets/images/congrats.png" alt="" />
+          </div>
+          <h6>Congratulations</h6>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit dolor sit
+            amet, consectetur lorem ipsum dolor adipiscing elit dolor sit ame
+          </p>
+          <div class="d-flex justify-content-center mb-3">
+            <button class="btn my-btn-styled" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-bs-dismiss="modal" #closeModal></div>
+</div>
+<div
+  data-bs-target="#congratulations"
+  data-bs-toggle="modal"
+  #congratsModal
+></div>
