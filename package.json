@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run recyfrica:serve-ssr",
     "serve:ssr": "node dist/recyfrica/server/main.js --proxy-config proxy.config.json",
-    "build:ssr": "ng build --configuration production && ng run recyfrica:serve-ssr",
+    "build:ssr": "ng build --configuration production && ng run recyfrica:production",
     "prerender": "ng run recyfrica:prerender"
   },
   "private": true,
