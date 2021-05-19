@@ -1,8 +1,10 @@
+import { UtilityService } from './../../services/utility.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserType } from '../user-types';
+import { Country, State } from 'src/app/shared/models/country.model';
 
 @Component({
   selector: 'app-nav',
@@ -18,13 +20,18 @@ export class NavComponent implements OnInit {
     | undefined;
   joinForm!: FormGroup;
   isLoading: boolean = false;
+  fetchingStates: boolean = false;
   userType = UserType;
+  countries: Country[] = [];
+  selectedCountryStates: State[] | undefined = [];
   constructor(
     private fb: FormBuilder,
     private _auth: AuthService,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _utility: UtilityService
   ) {}
   ngOnInit(): void {
+    this.getCountriesJson();
     this.initJoinForm();
   }
   initJoinForm() {
@@ -47,6 +54,25 @@ export class NavComponent implements OnInit {
     });
   }
 
+  getCountriesJson() {
+    this._utility.getCountries().subscribe({
+      next: (res) => {
+        this.countries = res;
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
+  }
+  selectState(country: string) {
+    this.fetchingStates = true;
+    const selectedCountry: Country | undefined = this.countries.find(
+      (c) => c.name == country
+    );
+    const selectedCountryStates: State[] | undefined = selectedCountry?.states;
+    this.selectedCountryStates = selectedCountryStates;
+    this.fetchingStates = false;
+  }
   changeUserType(event: any) {
     switch (event) {
       case UserType.USER_PROFILE:

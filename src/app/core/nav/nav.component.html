@@ -191,10 +191,11 @@
 
             <div class="row mb-2">
               <div class="col-12 col-lg-6">
-                <label for="country" class="form-label">Country</label>
+                <label for="country" class="form-label">Country </label>
                 <select
                   class="form-select my-select form-control"
                   aria-label=""
+                  (change)="selectState($any($event.target).value)"
                   formControlName="country"
                   [ngClass]="{
                     'is-invalid':
@@ -204,12 +205,23 @@
                 >
                   <option value="default">Select Country</option>
 
-                  <option value="3">Three</option>
+                  <option
+                    value="{{ country?.name }}"
+                    *ngFor="let country of countries"
+                  >
+                    {{ country?.name }}
+                  </option>
                 </select>
                 <div class="invalid-feedback">Country is required</div>
               </div>
               <div class="col-12 col-lg-6">
-                <label for="state" class="form-label">State/Province</label>
+                <label for="state" class="form-label"
+                  >State/Province
+                  <i
+                    class="fa fa-circle-o-notch fa-spin"
+                    *ngIf="fetchingStates"
+                  ></i
+                ></label>
                 <select
                   class="form-select my-select form-control"
                   aria-label=" "
@@ -221,7 +233,12 @@
                   }"
                 >
                   <option value="default">Select State</option>
-                  <option value="1">One</option>
+                  <option
+                    value="{{ state?.name }}"
+                    *ngFor="let state of selectedCountryStates"
+                  >
+                    {{ state?.name }}
+                  </option>
                 </select>
                 <div class="invalid-feedback">State is required</div>
               </div>

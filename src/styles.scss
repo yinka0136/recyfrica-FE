@@ -251,6 +251,7 @@ label {
     box-shadow: none !important;
     border: 1px solid $secondary-color;
   }
+
   option {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
@@ -261,16 +262,9 @@ label {
 
     color: #ababb6;
     opacity: 1; /* Firefox */
-    // &:checked {
-    //   font-family: "Poppins", "DMSans", Arial, Helvetica, sans-serif;
-    //   font-weight: 500;
-    //   font-size: 14px;
-    //   line-height: 31px;
-    //   letter-spacing: 0.007em;
-
-    //   color: #ababb6;
-    //   opacity: 1; /* Firefox */
-    // }
+    &.selected {
+      color: red;
+    }
   }
 
   &::-ms-input-placeholder {
