@@ -33,14 +33,16 @@ export class NavComponent implements OnInit {
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       email_address: ['', [Validators.email, Validators.required]],
-      phone_number: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^(((8)(0|1))|((7)(0))|((9)(0)))\\d{8}$'),
-        ],
-      ],
+      // phone_number: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     Validators.pattern('^(((8)(0|1))|((7)(0))|((9)(0)))\\d{8}$'),
+      //   ],
+      // ],
       address: [''],
+      country: ['default', Validators.required],
+      state: ['default', Validators.required],
       company_name: [''],
     });
   }

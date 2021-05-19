@@ -9,17 +9,21 @@
       <a class="navbar-brand" href="#"
         ><img src="../../../assets/images/Logo.png" alt="logo" class="logo"
       /></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="navbar-toggler">
+        <div
+          class="nav-icon"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+
       <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
         <div class="ms-auto">
           <div class="join-in">
@@ -57,7 +61,7 @@
         </div>
         <div class="modal-body">
           <p class="my-text-primary text-center mb-3 font-22 fw-500">
-            Join now to claim 50 Recyfrica points
+            Join now to claim 10 Recyfrica points
           </p>
           <form id="createForm" name="createForm" [formGroup]="joinForm">
             <div class="row mb-2">
@@ -185,6 +189,44 @@
               </div>
             </div>
 
+            <div class="row mb-2">
+              <div class="col-12 col-lg-6">
+                <label for="country" class="form-label">Country</label>
+                <select
+                  class="form-select my-select form-control"
+                  aria-label=""
+                  formControlName="country"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('country')?.errors &&
+                      joinForm.get('country')?.touched
+                  }"
+                >
+                  <option value="default">Select Country</option>
+
+                  <option value="3">Three</option>
+                </select>
+                <div class="invalid-feedback">Country is required</div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <label for="state" class="form-label">State/Province</label>
+                <select
+                  class="form-select my-select form-control"
+                  aria-label=" "
+                  formControlName="state"
+                  [ngClass]="{
+                    'is-invalid':
+                      joinForm.get('state')?.errors &&
+                      joinForm.get('state')?.touched
+                  }"
+                >
+                  <option value="default">Select State</option>
+                  <option value="1">One</option>
+                </select>
+                <div class="invalid-feedback">State is required</div>
+              </div>
+            </div>
+
             <div
               class="row mb-2"
               *ngIf="joinForm.get('user_type')?.value != userType.USER_PROFILE"
@@ -206,56 +248,7 @@
                 <div class="invalid-feedback">Please enter your address</div>
               </div>
             </div>
-
-            <div class="row mb-2">
-              <!-- <div class="col-12">
-                <label for="phone_number" class="form-label"
-                  >Phone Number</label
-                >
-                <div class="input-group">
-                  <span class="input-group-text" id="country">+234</span>
-                  <input
-                    type="string"
-                    class="form-control my-input"
-                    placeholder="8187456443"
-                    id="phone_number"
-                    aria-label="phone_number"
-                    aria-describedby="country"
-                    formControlName="phone_number"
-                    [ngClass]="{
-                      'is-invalid':
-                        joinForm.get('phone_number')?.errors &&
-                        joinForm.get('phone_number')?.touched
-                    }"
-                  />
-                  <div class="invalid-feedback">
-                    Please enter a valid phone number
-                  </div>
-                </div>
-              </div> -->
-              <div class="col-12 col-md-6">
-                <label for="country" class="form-label">Country</label>
-                <select
-                  class="form-select my-select form-control"
-                  aria-label=""
-                >
-                  <option selected="selected">Select Country</option>
-
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div class="col-12 col-md-6">
-                <label for="state" class="form-label">State/Province</label>
-                <select
-                  class="form-select my-select form-control"
-                  aria-label=" "
-                >
-                  <option selected>Select State</option>
-                  <option value="1">One</option>
-                </select>
-              </div>
-            </div>
-            <div class="my-2 d-flex justify-content-end">
+            <div class="my-4 d-flex justify-content-end">
               <button
                 type="button"
                 class="btn my-btn-styled"

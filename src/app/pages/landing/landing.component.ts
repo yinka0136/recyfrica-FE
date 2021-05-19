@@ -17,14 +17,14 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.do();
       AOS.init({
         offset: 400,
         duration: 500,
         easing: 'ease-in-sine',
         delay: 300,
-        once: false,
+        once: true,
       });
+      this.do();
     }
   }
   do() {
