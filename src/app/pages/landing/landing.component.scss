@@ -254,7 +254,7 @@
     margin-bottom: 80px;
   }
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: 990px) {
     .card-wrapper {
       display: flex;
       justify-content: center;
@@ -291,7 +291,8 @@
       top: 652px;
     }
   }
-  @media (max-width: 1024px) {
+
+  @media (min-width: 992px) and (max-width: 1196px) {
     .arr1 {
       left: 281px;
       top: 241px;
@@ -305,21 +306,7 @@
       top: 657px;
     }
   }
-  // @media (max-width: $screen-sm) {
-  //   .arr1 {
-  //     left: 223px;
-  //     top: 397px;
-  //   }
-  //   .arr2 {
-  //     left: 311px;
-  //     top: 588px;
-  //   }
-  //   .arr3 {
-  //     right: 107px;
-  //     top: 579px;
-  //   }
-  // }
-  @media (max-width: $screen-sm) {
+  @media (max-width: 990px) {
     .arr1 {
       display: none;
     }
@@ -331,6 +318,20 @@
     }
   }
   @media (min-width: $screen-xl) {
+    .arr1 {
+      left: 536px;
+      top: 236px;
+    }
+    .arr2 {
+      left: 760px;
+      top: 380px;
+    }
+    .arr3 {
+      right: 590px;
+      top: 660px;
+    }
+  }
+  @media (min-width: 1800px) {
     .arr1 {
       left: 670px;
       top: 236px;
@@ -344,6 +345,7 @@
       top: 660px;
     }
   }
+
   .group {
     position: relative;
     span {

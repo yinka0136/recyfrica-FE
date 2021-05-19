@@ -10,7 +10,7 @@
     "dev:ssr": "ng run recyfrica:serve-ssr",
     "serve:ssr": "node dist/recyfrica/server/main.js --proxy-config proxy.config.json",
     "build:ssr": "ng build --configuration production && ng run recyfrica:server",
-    "prerender": "ng run recyfrica:prerender"
+    "prerender": "ng run recyfrica:prerender --proxy-config proxy.config.json"
   },
   "private": true,
   "dependencies": {
