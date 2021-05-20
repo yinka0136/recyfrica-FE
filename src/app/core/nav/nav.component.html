@@ -1,3 +1,5 @@
+<button data-bs-toggle="modal" data-bs-target="#congratulations"></button>
+
 <div class="container">
   <nav
     class="navbar navbar-expand-lg navbar-light"
@@ -302,11 +304,39 @@
           <div class="d-flex justify-content-center">
             <img src="../../../assets/images/congrats.png" alt="contact" />
           </div>
-          <h6>Congratulations</h6>
+          <h6>Congratulations {{ joinForm.get("first_name")?.value }}</h6>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit dolor sit
-            amet, consectetur lorem ipsum dolor adipiscing elit dolor sit ame
+            Thank you for joining our waitlist. Our team is hard at work to
+            create the right product for you. You will get a link soon which
+            will grant you early access and reward points on the Recyfrica
+            Platform. <br />
+            Now that you are a community member, what’s next? follow us on all
+            social media platforms to join the conversation, get tips, product
+            updates, news and special.
           </p>
+          <div class="row text-center justify-content-center mb-2">
+            <a
+              href="https://www.facebook.com/Recyfrica "
+              style="color: #0c9ea0"
+              class="col-3 font-32"
+            >
+              <i class="fa fa-facebook-official"></i>
+            </a>
+            <a
+              style="color: #0c9ea0"
+              href="https://www.linkedin.com/company/recyfrica"
+              class="col-3 font-32"
+            >
+              <i class="fa fa-linkedin-square"></i>
+            </a>
+            <a
+              href=" https://twitter.com/recyfrica"
+              class="col-3 font-32"
+              style="color: #0c9ea0"
+            >
+              <i class="fa fa-twitter-square"></i>
+            </a>
+          </div>
           <div class="d-flex justify-content-center mb-3">
             <button class="btn my-btn-styled" data-bs-dismiss="modal">
               Close
