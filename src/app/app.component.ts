@@ -7,7 +7,7 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'recyfrica';
+  title = 'Recyfrica | Sustainable Waste Management Service.';
   constructor(private metaService: Meta, private titleService: Title) {}
   ngOnInit(): void {
     this.titleService.setTitle(this.title);
