@@ -1,10 +1,18 @@
 import { UtilityService } from './../../services/utility.service';
 import { AuthService } from './../../services/auth.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserType } from '../user-types';
 import { Country, State } from 'src/app/shared/models/country.model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-nav',
@@ -28,11 +36,14 @@ export class NavComponent implements OnInit {
     private fb: FormBuilder,
     private _auth: AuthService,
     private _toastr: ToastrService,
-    private _utility: UtilityService
+    private _utility: UtilityService,
+    @Inject(PLATFORM_ID) private platformId: any
   ) {}
   ngOnInit(): void {
     this.getCountriesJson();
     this.initJoinForm();
+    if (isPlatformBrowser(this.platformId)) {
+    }
   }
   initJoinForm() {
     this.joinForm = this.fb.group({
