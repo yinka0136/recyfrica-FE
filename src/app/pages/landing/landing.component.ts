@@ -1,5 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnDestroy,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import * as AOS from 'aos';
 @Component({
@@ -7,12 +14,15 @@ import * as AOS from 'aos';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss'],
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
   year: any = new Date().getFullYear();
+  atTop: boolean = window.pageYOffset == 0;
   constructor(
     @Inject(PLATFORM_ID) private platformId: any,
     private title: Title,
-    private meta: Meta
+    private meta: Meta,
+
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -27,9 +37,7 @@ export class LandingComponent implements OnInit {
       this.do();
     }
   }
-  scrollup() {
-    window.scroll(0, 0);
-  }
+
   do() {
     const typedTextSpan: any = document.querySelector('.typed-text');
     const cursorSpan: any = document.querySelector('.cursor');
@@ -78,4 +86,6 @@ export class LandingComponent implements OnInit {
       if (textArray.length) setTimeout(type, newTextDelay + 250);
     });
   }
+
+  ngOnDestroy(): void {}
 }
