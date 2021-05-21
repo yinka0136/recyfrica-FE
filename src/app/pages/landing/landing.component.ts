@@ -27,6 +27,9 @@ export class LandingComponent implements OnInit {
       this.do();
     }
   }
+  scrollup() {
+    window.scroll(0, 0);
+  }
   do() {
     const typedTextSpan: any = document.querySelector('.typed-text');
     const cursorSpan: any = document.querySelector('.cursor');
