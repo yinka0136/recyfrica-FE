@@ -21,7 +21,7 @@ export class LandingComponent implements OnInit {
         offset: 400,
         duration: 500,
         easing: 'ease-in-sine',
-        delay: 300,
+        delay: 200,
         once: true,
       });
       this.do();
