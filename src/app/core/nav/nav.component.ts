@@ -59,7 +59,7 @@ export class NavComponent implements OnInit {
       //   ],
       // ],
       address: [''],
-      country: ['default', Validators.required],
+      country: ['Nigeria', Validators.required],
       state: ['default', Validators.required],
       company_name: [''],
     });
@@ -69,6 +69,12 @@ export class NavComponent implements OnInit {
     this._utility.getCountries().subscribe({
       next: (res) => {
         this.countries = res;
+        const selectedCountry: Country | undefined = this.countries.find(
+          (c) => c.name == 'Nigeria'
+        );
+        const selectedCountryStates: State[] | undefined =
+          selectedCountry?.states;
+        this.selectedCountryStates = selectedCountryStates;
       },
       error: (e) => {
         console.log(e);
